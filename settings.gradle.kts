@@ -24,7 +24,7 @@ dependencyResolutionManagement {
 
 include(":app")
 include(":core:domain")
-include(":core:designsystem")
 include(":feature:auth:domain")
 include(":feature:playtrack:data")
-include(":feature:playtrack:presentation")
+include(":core:presentation")
+include(":core:designsystem")

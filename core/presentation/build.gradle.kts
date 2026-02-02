@@ -1,14 +1,15 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
+//    alias(libs.plugins.convention.cmp.library)
 
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "create.develop.core.designsystem"
+    namespace = "create.develop.core.presentation"
     compileSdk = 36
 
     defaultConfig {
@@ -31,18 +32,32 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-//    kotlinOptions {
-//        jvmTarget = "11"
-//    }
     kotlin {
         compilerOptions {
             jvmTarget = JvmTarget.JVM_17
         }
     }
+
 }
 
 dependencies {
 
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.lifecycle.runtime.ktx)
+    api(libs.androidx.activity.compose)
+    api(platform(libs.androidx.compose.bom))
+
+    api(libs.androidx.ui)
+    api(libs.androidx.ui.graphics)
+
+    api(libs.androidx.compose.ui.tooling.preview)
+
+    api(libs.androidx.material3)
+
+    compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.compose.gradlePlugin)
+
+    implementation(libs.jetbrains.lifecycle.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

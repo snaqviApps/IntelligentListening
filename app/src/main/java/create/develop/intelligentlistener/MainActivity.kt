@@ -19,7 +19,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import create.develop.core.designsystem.ui.theme.IntelligentListenerTheme
+import create.develop.intelligentlistener.ui.theme.IntelligentListenerTheme
+
+//import create.develop.core.designsystem.ui.theme.IntelligentListenerTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
