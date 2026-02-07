@@ -1,10 +1,25 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.baselineprofile)
+//    `kotlin-dsl`
 
+
+//    alias(libs.plugins.kotlin.android)          // android-application plugin comes with default project
+
+    /**
+     * 1. alias(libs.plugins.kotlin.multiplatform)
+     *
+     * this plugin is in conflict with
+     *  id = "com.android.library" (line# 132 in versions.toml)
+     *
+     */
+
+    /**
+     * 2. alias(libs.plugins.android.application)
+     */
+    alias(libs.plugins.convention.android.application)
+//    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.compose.compiler)
 //    alias(libs.plugins.compose.hot.reload)
 
 }
@@ -30,32 +45,45 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Ensure Baseline Profile is fresh for release builds.
+            baselineProfile.automaticGenerationDuringBuild = true
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-
     }
-//    kotlinOptions {
-//        jvmTarget = "11"
+
+
+    /**
+     * with the default 'application' plugin, this Kotlin-block' is available
+     * and prevents application from crashing.
+     */
+//    kotlin {
+//        compilerOptions {
+//            jvmTarget = JvmTarget.JVM_17
+//        }
 //    }
-
-    kotlin {
-        compilerOptions {
-            jvmTarget = JvmTarget.JVM_17
-        }
-    }
 
     buildFeatures {
         compose = true
     }
 }
 
+baselineProfile {
+    // Don't build on every iteration of a full assemble.
+    // Instead enable generation directly for the release build variant.
+    automaticGenerationDuringBuild = false
+
+    // Make use of Dex Layout Optimizations via Startup Profiles
+    dexLayoutOptimization = true
+}
+
 dependencies {
 
 //    implementation(project(":core:designsystem"))
 //    implementation(projects.core.designsystem)    // ---> it works
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -76,4 +104,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
 }
