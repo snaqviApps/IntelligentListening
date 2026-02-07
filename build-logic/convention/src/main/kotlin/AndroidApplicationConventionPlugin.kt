@@ -1,14 +1,10 @@
 import com.android.build.api.dsl.ApplicationExtension
 import create.develop.intelligentlistener.convention.configureKotlinAndroid
 import create.develop.intelligentlistener.convention.libs
-//import org.gradle.api.Plugin
-//import org.gradle.api.Project
-//import org.gradle.kotlin.dsl.configure
 
 //import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 
 class AndroidApplicationConventionPlugin: Plugin<Project> {
@@ -19,7 +15,6 @@ class AndroidApplicationConventionPlugin: Plugin<Project> {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
             }
-
 
 //            extensions.configure<ApplicationAndroidComponentsExtension> {
                 extensions.configure<ApplicationExtension> {
@@ -45,10 +40,8 @@ class AndroidApplicationConventionPlugin: Plugin<Project> {
                     }
                     configureKotlinAndroid(this)
                 }
-
 //            }
 
         }
-
     }
 }

@@ -8,7 +8,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -56,7 +55,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                     .fillMaxWidth()
             ) {
                 Text(
-                    text = "$name! What is Mashto-android + $i",
+                    text = "$name! What's Mashto-android + $i",
                     modifier = modifier
                         .background(Color.Cyan)
                         .padding(2.dp)
@@ -78,11 +77,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         }
     }
 
-}
-
-@Composable
-private fun PrintClicks(scope: BoxScope) {
-    TODO("Not yet implemented")
 }
 
 @Preview(showBackground = true)

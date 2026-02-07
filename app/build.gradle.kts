@@ -1,27 +1,8 @@
 
 plugins {
     alias(libs.plugins.baselineprofile)
-//    `kotlin-dsl`
-
-
-//    alias(libs.plugins.kotlin.android)          // android-application plugin comes with default project
-
-    /**
-     * 1. alias(libs.plugins.kotlin.multiplatform)
-     *
-     * this plugin is in conflict with
-     *  id = "com.android.library" (line# 132 in versions.toml)
-     *
-     */
-
-    /**
-     * 2. alias(libs.plugins.android.application)
-     */
     alias(libs.plugins.convention.android.application)
-//    alias(libs.plugins.compose.multiplatform)
-    alias(libs.plugins.compose.compiler)
-//    alias(libs.plugins.compose.hot.reload)
-
+    alias(libs.plugins.convention.android.application.compose)
 }
 
 android {

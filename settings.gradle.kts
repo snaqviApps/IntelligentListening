@@ -16,11 +16,28 @@ pluginManagement {
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
     repositories {
-        google()
+        google {
+            mavenContent {
+                includeGroupAndSubgroups("androidx")
+                includeGroupAndSubgroups("com.android")
+                includeGroupAndSubgroups("com.google")
+            }
+        }
         mavenCentral()
     }
+
 }
+
+//gradle.startParameter.excludedTaskNames.addAll(listOf(":build-logic:testClasses"))
+// OR
+//gradle.startParameter.excludedTaskNames.addAll(listOf(":build-logic:testClasses"))`
+
 
 include(":app")
 //include(":core:domain")

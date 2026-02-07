@@ -4,17 +4,20 @@ plugins {
     `kotlin-dsl`
 }
 
-//repositories {
-//    gradlePluginPortal()
-//}
-
 group = "create.develop.convention.buildlogic"
 
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.android.tools.common)
     compileOnly(libs.kotlin.gradlePlugin)
-//    compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.compose.gradlePlugin)
+
+    compileOnly(libs.android.gradlePlugin)
+    compileOnly(libs.android.tools.common)
+    compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
+    compileOnly(libs.androidx.room.gradle.plugin)
+    implementation(libs.truth)
 }
 
 java {
@@ -38,9 +41,16 @@ tasks {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-//            id = "create.develop.convention.android.application"
+//            id = "create.develop.convention.android.application"  same as below
             id = libs.plugins.convention.android.application.asProvider().get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
+        }
+        register("androidComposeApplication") {
+            id = "create.develop.convention.android.application.compose"
+
+//            id = libs.plugins.convention.android.application.compose          // doesn't give method asProvider()
+
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
     }
 }
