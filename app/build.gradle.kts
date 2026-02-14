@@ -1,7 +1,7 @@
 
 plugins {
     alias(libs.plugins.baselineprofile)
-    alias(libs.plugins.convention.android.application)
+//    alias(libs.plugins.convention.android.application)
     alias(libs.plugins.convention.android.application.compose)
 }
 

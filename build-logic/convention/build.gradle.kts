@@ -11,10 +11,6 @@ dependencies {
     compileOnly(libs.android.tools.common)
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
-
-    compileOnly(libs.android.gradlePlugin)
-    compileOnly(libs.android.tools.common)
-    compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.androidx.room.gradle.plugin)
     implementation(libs.truth)
@@ -35,22 +31,33 @@ tasks {
     validatePlugins {
         enableStricterValidation = true
         failOnWarning = true
+//        clean
     }
+}
+
+tasks.register("clean-build-logic") {
+//    doLast {
+//        clean
+//    }
+    tasks.clean
 }
 
 gradlePlugin {
     plugins {
         register("androidApplication") {
-//            id = "create.develop.convention.android.application"  same as below
             id = libs.plugins.convention.android.application.asProvider().get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidComposeApplication") {
-            id = "create.develop.convention.android.application.compose"
-
-//            id = libs.plugins.convention.android.application.compose          // doesn't give method asProvider()
-
+//            id = "create.develop.convention.android.application.compose"
+            id = libs.plugins.convention.android.application.compose.get().pluginId          // doesn't give method asProvider()
             implementationClass = "AndroidApplicationComposeConventionPlugin"
+
         }
+        register("androidLibrary") {
+            id =  libs.plugins.convention.android.library.get().pluginId                    // doesn't give method asProvider()
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
+
     }
 }

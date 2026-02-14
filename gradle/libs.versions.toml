@@ -1,5 +1,6 @@
 [versions]
-agp = "8.12.3"
+agp = "8.13.2"
+#agp = "9.0.0"          // CommonExtension doesn't work with this upgrage for now
 #kotlin = "2.0.21"
 coreKtx = "1.17.0"
 junit = "4.13.2"
@@ -15,7 +16,8 @@ androidxMacroBenchmark = "1.5.0-alpha01"
 # Build tools
 #agp = "8.11.1"
 #composeBom = "2025.07.00"
-kotlin = "2.3.0"
+#kotlin = "2.3.0"
+kotlin = "2.3.10"
 ksp = "2.2.0-2.0.2"
 google-services = "4.4.3"
 
@@ -135,7 +137,7 @@ buildkonfig-compiler = { group = "com.codingfeline.buildkonfig", name = "buildko
 baselineprofile = { id = "androidx.baselineprofile", version.ref = "androidxMacroBenchmark"}
 # Android
 #android-libarry to generate the library output, not executables
-android-library = { id = "com.android.library", version.ref = "agp" }       # confilicting with 'om.android.application'
+android-library = { id = "com.android.library", version.ref = "agp" }       # confilicting with 'com.android.application'
 android-application = { id = "com.android.application", version.ref = "agp" }
 #android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 
@@ -148,7 +150,9 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 convention-android-application = { id = "create.develop.convention.android.application", version = "unspecified" }
 convention-android-application-compose = { id = "create.develop.convention.android.application.compose", version = "unspecified" }
 
-convention-cmp-application = { id = "create.develop.convention.cmp.application", version = "unspecified" }
+convention-android-library = { id = "create.develop.convention.android.library", version = "unspecified" }
+
+
 convention-cmp-library = { id = "create.develop.convention.cmp.library", version = "unspecified" }
 
 convention-kmp-library = { id = "create.develop.convention.kmp.library", version = "unspecified" }

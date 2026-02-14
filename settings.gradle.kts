@@ -34,14 +34,10 @@ dependencyResolutionManagement {
 
 }
 
-//gradle.startParameter.excludedTaskNames.addAll(listOf(":build-logic:testClasses"))
-// OR
-//gradle.startParameter.excludedTaskNames.addAll(listOf(":build-logic:testClasses"))`
-
-
 include(":app")
 //include(":core:domain")
 //include(":feature:auth:domain")
 //include(":feature:playtrack:data")
 //include(":core:presentation")
 //include(":core:designsystem")
+include(":core:domain")
