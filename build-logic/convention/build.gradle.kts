@@ -49,13 +49,14 @@ gradlePlugin {
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidComposeApplication") {
-//            id = "create.develop.convention.android.application.compose"
-            id = libs.plugins.convention.android.application.compose.get().pluginId          // doesn't give method asProvider()
+            id = "create.develop.convention.android.application.compose"
+//            id = libs.plugins.convention.android.application.compose.get().pluginId          // doesn't give method asProvider()
             implementationClass = "AndroidApplicationComposeConventionPlugin"
 
         }
         register("androidLibrary") {
-            id =  libs.plugins.convention.android.library.get().pluginId                    // doesn't give method asProvider()
+            id = "create.develop.convention.android.library"
+//            id =  libs.plugins.convention.android.library.get().pluginId                    // doesn't give method asProvider()
             implementationClass = "AndroidLibraryConventionPlugin"
         }
 

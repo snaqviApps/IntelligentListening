@@ -1,55 +1,9 @@
 
 plugins {
     alias(libs.plugins.baselineprofile)
-//    alias(libs.plugins.convention.android.application)
     alias(libs.plugins.convention.android.application.compose)
 }
 
-android {
-    namespace = "create.develop.intelligentlistener"
-    compileSdk = 36
-
-    defaultConfig {
-        applicationId = "create.develop.intelligentlistener"
-        minSdk = 25
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            // Ensure Baseline Profile is fresh for release builds.
-            baselineProfile.automaticGenerationDuringBuild = true
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-
-    /**
-     * with the default 'application' plugin, this Kotlin-block' is available
-     * and prevents application from crashing.
-     */
-//    kotlin {
-//        compilerOptions {
-//            jvmTarget = JvmTarget.JVM_17
-//        }
-//    }
-
-    buildFeatures {
-        compose = true
-    }
-}
 
 baselineProfile {
     // Don't build on every iteration of a full assemble.
@@ -62,9 +16,8 @@ baselineProfile {
 
 dependencies {
 
-//    implementation(project(":core:designsystem"))
-//    implementation(projects.core.designsystem)    // ---> it works
-
+    implementation(project(":core:data"))       // needs to be checked if it is working, stage: Commit f91d783
+    implementation(projects.core.domain)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

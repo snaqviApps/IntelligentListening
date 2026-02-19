@@ -119,7 +119,7 @@ jetbrains-lifecycle-compose = { group = "org.jetbrains.androidx.lifecycle", name
 
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
-#jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref="compose-jetbrains"}
+jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref="compose-jetbrains"}
 
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -147,7 +147,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 #Convention-plugins
-convention-android-application = { id = "create.develop.convention.android.application", version = "unspecified" }
+convention-android-application = { id = "create.develop.convention.android.application", version = "unspecified" }  # being referred in below convention plugin
 convention-android-application-compose = { id = "create.develop.convention.android.application.compose", version = "unspecified" }
 
 convention-android-library = { id = "create.develop.convention.android.library", version = "unspecified" }

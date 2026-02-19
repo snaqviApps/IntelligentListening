@@ -13,25 +13,20 @@ import org.gradle.kotlin.dsl.dependencies
 
 /**
  * CmpLibraryConventionPlugin and KmpLibraryConventionPlugin combining
- * to make Android-Target ONLY solution, including
- * libraries specific to the same
+ * to make Android-Target ONLY solution, by converging, if needed,
+ * the libraries included in both
  *
  */
 class AndroidLibraryConventionPlugin: Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-
-                apply("org.jetbrains.kotlin.plugin.compose")     // contains AndroidApplicationConventionPlugin and AndroidApplicationComposeConventionPlugin
                 apply("com.android.library")
-
-//                apply("create.develop.convention.kmp.library")            // Kmp, needs to be enabled yet
-                apply("org.jetbrains.compose")
+                apply("org.jetbrains.kotlin.android")
                 apply("org.jetbrains.kotlin.plugin.serialization")
+
             }
 
-            /** supposedly in a KMP-project */
-//                configureAndroidTarget()
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
@@ -52,15 +47,20 @@ class AndroidLibraryConventionPlugin: Plugin<Project> {
                  * */
                 dependencies {
                     "implementation"(libs.findLibrary("jetbrains-compose-ui").get())
-                    "implementation"(libs.findLibrary("jetbrains-compose-foundation").get())
-                    "implementation"(libs.findLibrary("jetbrains-compose-material3").get())
-                    "implementation"(libs.findLibrary("jetbrains-compose-material-icons-core").get())
-
+//                    "implementation"(libs.findLibrary("jetbrains-compose-foundation").get())
+//                    "implementation"(libs.findLibrary("jetbrains-compose-material3").get())
+//                    "implementation"(libs.findLibrary("jetbrains-compose-material-icons-core").get())
                     "implementation"(libs.findLibrary("kotlinx-serialization-json").get())          //"-" replaced the "."
 
+                    "implementation"(libs.findLibrary("androidx.core.ktx").get())
+                    "implementation"(libs.findLibrary("androidx.appcompat").get())
+                    "implementation"(libs.findLibrary("material").get())
 
+                    "testImplementation"(libs.findLibrary("junit").get())
+                    "androidTestImplementation"(libs.findLibrary("androidx.junit").get())
+                    "androidTestImplementation"(libs.findLibrary("androidx.espresso.core").get())
 
-                    "debugImplementation"(libs.findLibrary("jetbrains-compose-ui-tooling").get())
+                    "debugImplementation"(libs.findLibrary("androidx-compose-ui-tooling").get())
             }
         }
     }
