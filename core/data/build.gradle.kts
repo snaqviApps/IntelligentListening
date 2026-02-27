@@ -1,9 +1,16 @@
 plugins {
     alias(libs.plugins.convention.android.library)
+    /**
+     *  alias(libs.plugins.convention.buildkonfig)
+     *
+     * BuildKonfig Gradle plugin applied in project ':feature:statsboard:data'
+     * but no supported Kotlin multiplatform plugin was found
+     */
 }
 
+/**
 android {
-    namespace = "create.develop.intelligentlistener.data"
+    namespace = "create.develop.core.data"
     compileSdk {
         version = release(36)
     }
@@ -24,17 +31,16 @@ android {
             )
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
-
+*/
 dependencies {
+//    implementation(libs.kotlin.stdlib)
     implementation(projects.core.domain)
-    /**
-     * moved all block-below to the 'build.gradle.kts' into the convention-plugin: AndroidLibraryConventionPlugin
-     *     implementation(libs.androidx.core.ktx)
-     *     implementation(libs.androidx.appcompat)
-     *     implementation(libs.material)
-     *     testImplementation(libs.junit)
-     *     androidTestImplementation(libs.androidx.junit)
-     *     androidTestImplementation(libs.androidx.espresso.core)
-     */
 }

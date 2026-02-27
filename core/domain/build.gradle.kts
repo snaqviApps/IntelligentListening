@@ -1,11 +1,13 @@
 plugins {
-//    alias(libs.plugins.android.library)       ---> comes as default provided when creating this module, replaced by line # 4
-//    alias(libs.plugins.kotlin.android)        ---> comes as default provided when creating this module, replaced by line # 4
+//    alias(libs.plugins.android.library)
+//    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.convention.android.library)
 }
 
+/**
+
 android {
-    namespace = "create.develop.intelligentlistener.domain"
+    namespace = "create.develop.core.domain"
     compileSdk {
         version = release(36)
     }
@@ -26,19 +28,17 @@ android {
             )
         }
     }
-
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_17
-//        targetCompatibility = JavaVersion.VERSION_17
-//    }
-
-
-
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
+*/
+
 
 dependencies {
-    /**
-     * moved all block to the 'build.gradle.kts' into the convention-plugin: AndroidLibraryConventionPlugin
-     *
-     */
+
 }

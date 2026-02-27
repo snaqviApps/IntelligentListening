@@ -9,10 +9,16 @@ group = "create.develop.convention.buildlogic"
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.android.tools.common)
+
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.androidx.room.gradle.plugin)
+
+    compileOnly(libs.com.perrotuerto.buildconfig.gradle.plugin)     // Perrotuerto buildConfig library
+
+    implementation(libs.com.perrotuerto.buildconfig.gradle.plugin)
+
     implementation(libs.truth)
 }
 
@@ -56,8 +62,20 @@ gradlePlugin {
         }
         register("androidLibrary") {
             id = "create.develop.convention.android.library"
-//            id =  libs.plugins.convention.android.library.get().pluginId                    // doesn't give method asProvider()
             implementationClass = "AndroidLibraryConventionPlugin"
+        }
+
+        register("cmpLibrary") {
+            id = "create.develop.convention.cmp.library"
+            implementationClass = "CmpLibraryConventionPlugin"
+        }
+        register("cmpFeature") {
+            id = "create.develop.convention.cmp.feature"
+            implementationClass = "CmpFeatureConventionPlugin"
+        }
+        register("BuildKonfig") {
+            id = "create.develop.convention.buildkonfig"
+            implementationClass = "BuildKonfigConventionPlugin"
         }
 
     }

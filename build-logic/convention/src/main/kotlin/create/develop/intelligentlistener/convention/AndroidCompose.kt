@@ -18,12 +18,16 @@ internal fun Project.configureAndroidCompose(
     commonExtension.apply {
         buildFeatures.apply {
             compose = true
+            buildConfig = true
         }
 
         dependencies {
             val bom = libs.findLibrary("androidx-compose-bom").get()
             "implementation"(platform(bom))
             "androidTestImplementation"(platform(bom))
+            "implementation"(libs.findLibrary("jetbrains-compose-material3").get())
+            "implementation"(libs.findLibrary("jetbrains-compose-material-icons-core").get())
+            "implementation"(libs.findLibrary("android-compose-material-icon-extended").get())
             "implementation"(libs.findLibrary("androidx-compose-ui-tooling-preview").get())
             "debugImplementation"(libs.findLibrary("androidx-compose-ui-tooling").get())
         }

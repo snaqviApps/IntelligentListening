@@ -35,5 +35,13 @@ dependencyResolutionManagement {
 }
 
 include(":app")
+include(":core:presentation")
 include(":core:domain")
+include(":core:designsystem")
 include(":core:data")
+include(":feature:auth:presentation")
+include(":feature:statsboard:presentation")
+include(":feature:auth:domain")
+include(":feature:statsboard:domain")
+include(":feature:statsboard:database")
+include(":feature:statsboard:data")

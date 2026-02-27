@@ -16,8 +16,12 @@ baselineProfile {
 
 dependencies {
 
-    implementation(project(":core:data"))       // needs to be checked if it is working, stage: Commit f91d783
-    implementation(projects.core.domain)
+    implementation(projects.core.designsystem)
+
+//    implementation(projects.core.domain)
+        implementation(projects.core.data)
+    implementation(projects.core.presentation)
+    implementation(projects.feature.statsboard.presentation)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
