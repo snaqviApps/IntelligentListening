@@ -1,4 +1,8 @@
-//
+/**
+ * /This plugin is not working as only 'KMP' type projects are able to use the
+ * library [BuildConfigPluginExtension]
+ * that enables  
+ */
 //import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 //import com.perrotuerto.gradle.BuildConfigPluginExtension
 //

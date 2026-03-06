@@ -16,8 +16,12 @@ dependencies {
     compileOnly(libs.androidx.room.gradle.plugin)
 
     compileOnly(libs.com.perrotuerto.buildconfig.gradle.plugin)     // Perrotuerto buildConfig library
-
     implementation(libs.com.perrotuerto.buildconfig.gradle.plugin)
+
+    //retrofit and gson
+//    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation(libs.android.retrofit)
+    implementation(libs.android.gson)
 
     implementation(libs.truth)
 }
@@ -73,9 +77,13 @@ gradlePlugin {
             id = "create.develop.convention.cmp.feature"
             implementationClass = "CmpFeatureConventionPlugin"
         }
-        register("BuildKonfig") {
-            id = "create.develop.convention.buildkonfig"
-            implementationClass = "BuildKonfigConventionPlugin"
+        register("roomLibrary") {
+            id = "create.develop.convention.room"
+            implementationClass = "RoomConventionPlugin"
+        }
+        register("retrofitLibrary") {
+            id = "create.develop.convention.retrofit"
+            implementationClass = "RetrofitConventionPlugin"
         }
 
     }

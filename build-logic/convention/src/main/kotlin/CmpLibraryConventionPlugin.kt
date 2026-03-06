@@ -11,6 +11,8 @@ class CmpLibraryConventionPlugin: Plugin<Project> {
                 apply("create.develop.convention.android.library")
                 apply("org.jetbrains.kotlin.plugin.compose")
                 apply("org.jetbrains.kotlin.plugin.serialization")
+                apply("org.jetbrains.compose")
+
             }
             extensions.configure<LibraryExtension> {
                 configureAndroidCompose(this)

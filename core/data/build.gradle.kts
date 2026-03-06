@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.convention.android.library)
+//    alias(libs.plugins.convention.retrofit)
+
     /**
      *  alias(libs.plugins.convention.buildkonfig)
      *

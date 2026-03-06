@@ -1,10 +1,5 @@
 plugins {
-//    alias(libs.plugins.android.library)
-//    alias(libs.plugins.kotlin.android)
-
-    //    alias(libs.plugins.convention.android.library)        // this Only works
-    alias(libs.plugins.convention.cmp.library)              //
-
+    alias(libs.plugins.convention.cmp.library)
 }
 
 /**
